@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+	<h:form id="my_form" prependId="false">
+            <p:growl id="growl" autoUpdate="false" showDetail="true" 
+                     showSummary="true"/>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="ComboBox" for="client"/>
+                <p:selectOneMenu id="client" required="true"
+                                 value="#{componentControler.selectOne}"
+                                 filter="true" filterMatchMode="contains">
+                    <f:selectItem itemLabel="---select---" itemValue="#{null}"
+                                  noSelectionOption="true"/>
+                    <f:selectItems value="#{componentControler.clients}"
+                                  var="e" itemValue="#{e}" itemLabel="#{e}"/>
+                </p:selectOneMenu>
+                <p:dataTable id="clients_table" value="#{componentControler.clients}"
+                             emptyMessage="No clients avilable" rowIndexVar="idx"
+                             rowKey="#{s.id}" var="s">
+                    <p:column headerText="No.">
+                        <h:outputText value="#{idx + 1}"/>
+                    </p:column>
+                    <p:column headerText="Name">
+                        <h:outputText value="#{s.name}"/>
+                    </p:column>
+                    <p:column headerText="Actions">
+                        <p:commandLink value="Delete" update="clients_table"
+                            actionListener="#{componentControler.delete(idx)}"/>
+                    </p:column>
+                </p:dataTable>
+                <f:facet name="footer">
+                    <p:commandButton value="Send data" update="@form"
+                            actionListener="#{componentControler.actionListener}"/>
+                    
+                </f:facet>
+            </h:panelGrid>
+	</h:form>
+    </h:body>
+</html>
+

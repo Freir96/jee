@@ -1,0 +1,8 @@
+pl\polsl\CookieAccesser.class
+pl\polsl\ClientsList.class
+pl\polsl\ComponentControler.class
+pl\polsl\ErrorServlet.class
+pl\polsl\LoginServlet.class
+pl\polsl\AccessFilter.class
+pl\polsl\PurchaseServlet.class
+pl\polsl\ClientServlet.class
