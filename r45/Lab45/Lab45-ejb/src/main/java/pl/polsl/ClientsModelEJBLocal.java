@@ -6,12 +6,13 @@
 package pl.polsl;
 
 import java.util.List;
-
+import javax.ejb.Local;
 /**
  * @version 1.0
  * @author Adam Gajewski
  */
-public interface ClientsModelEJBLocalBean {
+@Local
+public interface ClientsModelEJBLocal {
     public List<Client> findAllClients();
     public boolean removeClient(Integer id);
     public void createClient(String name);

@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-@LocalBean
 public class ClientsModelEJB implements ClientsModelEJBLocalBean{
 
     @PersistenceContext

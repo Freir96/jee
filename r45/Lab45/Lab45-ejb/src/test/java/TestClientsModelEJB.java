@@ -18,7 +18,7 @@ import pl.polsl.ClientsModelEJB;
 public class TestClientsModelEJB {
 
     private static Properties properties;
-    private static ClientsModelEJB model;
+    private static ClientsModelEJBLocal model;
 
     @BeforeClass
     public static void init() {
@@ -36,8 +36,8 @@ public class TestClientsModelEJB {
         properties.put("Lab-PU.JdbcUrl",
                 "jdbc:mysql://localhost/lab?characterEncoding=utf8");
         try {
-            model = (ClientsModelEJB) new InitialContext(properties).
-                    lookup("ClientsModelEJBLocalBean");
+            model = (ClientsModelEJBLocal) new InitialContext(properties).
+                    lookup("ClientsModelEJBLocal");
         } catch (NamingException ex) {
             ex.printStackTrace();
         }
